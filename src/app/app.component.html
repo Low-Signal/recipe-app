@@ -1,9 +1,26 @@
-<app-header></app-header>
-<div class="container">
+<app-header (inRecipes)="goToRecipes($event)" (inShoppingList)="goToShoppingList($event)"></app-header>
+<div *ngIf="pageLocation == 'inRecipe'">
+    <div class="row">
+        <div class="col-md-12">
+            <app-recipes></app-recipes>
+        </div>
+    </div>
+</div>
+<div *ngIf="pageLocation == 'inShoppingList'">
+    <div class="row">
+        <div class="col-md-12">
+            <app-shopping-list></app-shopping-list>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-12">
             <app-recipes></app-recipes>
             <app-shopping-list></app-shopping-list>
         </div>
     </div>
-</div>
+</div> -->
