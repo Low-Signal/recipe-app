@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'recipe-app';
 
-  public pageLocation: string = "recipe";
+  pageLocation: string = "recipe";
 
   changePage(newPage: string) {
     this.pageLocation = newPage;
