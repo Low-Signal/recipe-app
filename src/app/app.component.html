@@ -1,26 +1,9 @@
-<app-header (inRecipes)="goToRecipes($event)" (inShoppingList)="goToShoppingList($event)"></app-header>
-<div *ngIf="pageLocation == 'inRecipe'">
+<app-header (pageChanged)="changePage($event)"></app-header>
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <app-recipes></app-recipes>
+            <app-recipes *ngIf="pageLocation == 'recipe'"></app-recipes>
+            <app-shopping-list *ngIf="pageLocation == 'shopping-list'"></app-shopping-list>
         </div>
     </div>
 </div>
-<div *ngIf="pageLocation == 'inShoppingList'">
-    <div class="row">
-        <div class="col-md-12">
-            <app-shopping-list></app-shopping-list>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <app-recipes></app-recipes>
-            <app-shopping-list></app-shopping-list>
-        </div>
-    </div>
-</div> -->

@@ -8,13 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'recipe-app';
 
-  public pageLocation: string = "inRecipe";
+  public pageLocation: string = "recipe";
 
-  goToRecipes(changeTo: string) {
-    this.pageLocation = changeTo;
-  }
-
-  goToShoppingList(changeTo: string) {
-    this.pageLocation = changeTo;
+  changePage(newPage: string) {
+    this.pageLocation = newPage;
   }
 }
