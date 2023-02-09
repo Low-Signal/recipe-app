@@ -1,28 +1,35 @@
-<body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
+        <!-- Recipe Header -->
         <div class="navbar-header">
             <a href="#" class="navbar-brand">Recipe Book</a>
         </div>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <!-- Collapsible Button -->
+        <button class="navbar-toggler"
+            type="button" 
+            aria-controls="navbarContent"
+            [attr.aria-expanded]="!collapsed"
+            aria-label="Toggle navigation"
+            (click)="collapsed = !collapsed">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <!-- Navbar menu items -->
+        <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
             <ul class="navbar-nav">
                 <li><a class="nav-link" (click)="pageRouter('recipe')" href="#">Recipes</a></li>
                 <li><a class="nav-link" (click)="pageRouter('shopping-list')" href="#">Shopping List</a></li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Manage</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Save Data</a></li>
-                        <li><a class="dropdown-item" href="#">Fetch Data</a></li>
-                    </ul>
+            <!-- Navbar dropdown -->
+            <ul class="navbar-nav ms-auto test1">
+                <li class="nav-item" ngbDropdown>
+                    <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown" role="button"> Manage </a>
+                    <div ngbDropdownMenu aria-labelledby="navbarDropdown" class="dropdown-menu-end">
+                        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Save Data</a>
+                        <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Fetch Data</a>
+                    </div>
                 </li>
             </ul>
         </div>
-        </div>
+    </div>
 </nav>
-</body>
+
