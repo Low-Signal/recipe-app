@@ -1,4 +1,5 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ShoppingListService } from 'src/app/services/shopping-list.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 
 @Component({
@@ -10,12 +11,10 @@ export class ShoppingEditComponent {
   @ViewChild('nameInput') nameInput: ElementRef;
   @ViewChild('amountInput') amountInput: ElementRef;
 
+  constructor(private shoppingListService: ShoppingListService) {};
 
-  // Used to send the inputed ingredients to update the shopping-list
-  @Output('newIngredient') newIngredient = new EventEmitter <Ingredient> ();
-
-  sendNewIngredient() {
-    // Uses the value references that were inputed to create a new Ingredient object to send to the shopping-list
-    this.newIngredient.emit(new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value));
+  // Calls the ShoppingListService to add a new ingredient to the shopping list
+  addNewIngredient() {
+    this.shoppingListService.addNewIngredient(new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value));
   }
 }
