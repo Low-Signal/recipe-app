@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ShoppingListService } from 'src/app/services/shopping-list.service';
+import { Ingredient } from 'src/app/shared/ingredient.model';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -10,4 +12,16 @@ export class RecipeDetailsComponent {
 
   // Selected recipe
   @Input() recipeDetails : Recipe;
+
+  constructor(private shoppingListService: ShoppingListService) {}
+
+  addAllIngredientsToShoppingList() {
+    for(var ingredient of this.recipeDetails.ingredients) {
+      this.shoppingListService.addNewIngredient(new Ingredient(ingredient.name, ingredient.amount));
+    }
+  }
+
+  addIngredientToShoppingList(ingredient: Ingredient) {
+    this.shoppingListService.addNewIngredient(new Ingredient(ingredient.name, ingredient.amount));
+  }
 }
