@@ -25,3 +25,17 @@ img {
     -webkit-font-smoothing: antialiased;
     float: right;
 }
+
+.icon-container i:nth-child(2) {
+    display: none; 
+  }
+  
+  .icon-container:hover i:nth-child(1) {
+    display: none;
+  }
+  
+  .icon-container:hover i:nth-child(2) {
+    display: block;
+    font-style: normal;
+    float: right;
+  }

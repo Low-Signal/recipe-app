@@ -34,8 +34,11 @@
         <div class="col-12">
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let ingredient of recipeDetails.ingredients">
-                    {{ingredient.name}} {{ingredient.amount}} 
-                    <i type="button" (click)="addIngredientToShoppingList(ingredient)" class="material-icons">shopping_cart</i>
+                    {{ingredient.name}} {{ingredient.amount}}
+                    <div class="icon-container">
+                        <i type="button" (click)="addIngredientToShoppingList(ingredient)" class="material-icons">shopping_cart</i>
+                        <i type="button" (click)="addIngredientToShoppingList(ingredient)">Add to Shopping List</i>
+                    </div>
                 </li>
             </ul>
         </div>
